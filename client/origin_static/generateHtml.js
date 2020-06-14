@@ -1,11 +1,11 @@
-import React from "react"
-import ReactDOMServer from "react-dom/server"
-import fs from "fs"
-import Footer from "./app/components/Footer"
-import Header from "./app/components/Header"
-import LoadingDotsIcon from "./app/components/LoadingDotsIcon"
-import { StaticRouter as Router } from "react-router-dom"
-import StateContext from "./app/StateContext"
+import React from 'react';
+import ReactDOMServer from 'react-dom/server';
+import fs from 'fs';
+import Footer from './app/components/Footer';
+import Header from './app/components/Header';
+import LoadingDotsIcon from './app/components/LoadingDotsIcon';
+import { StaticRouter as Router } from 'react-router-dom';
+import StateContext from './app/StateContext';
 
 function Shell() {
   return (
@@ -18,7 +18,7 @@ function Shell() {
         <Footer />
       </Router>
     </StateContext.Provider>
-  )
+  );
 }
 
 function html(x) {
@@ -41,7 +41,7 @@ function html(x) {
       </div>
     </body>
   </html>
-  `
+  `;
 }
 
 /*
@@ -50,7 +50,7 @@ function html(x) {
   of HTML text. We simply give it a React component and
   here we are using the JSX syntax.
 */
-const reactHtml = ReactDOMServer.renderToString(<Shell />)
+const reactHtml = ReactDOMServer.renderToString(<Shell />);
 
 /*
   Call our "html" function which has the skeleton or
@@ -61,7 +61,7 @@ const reactHtml = ReactDOMServer.renderToString(<Shell />)
   want, we just need to save it to a file.
 
 */
-const overallHtmlString = html(reactHtml)
+const overallHtmlString = html(reactHtml);
 
 /*
   This course is not about Node, but here we are simply
@@ -70,8 +70,8 @@ const overallHtmlString = html(reactHtml)
   will fail if the directory we told it to live within
   ("app" in this case) does not already exist.
 */
-const fileName = "./app/index-template.html"
-const stream = fs.createWriteStream(fileName)
-stream.once("open", () => {
-  stream.end(overallHtmlString)
-})
+const fileName = './app/index-template.html';
+const stream = fs.createWriteStream(fileName);
+stream.once('open', () => {
+  stream.end(overallHtmlString);
+});

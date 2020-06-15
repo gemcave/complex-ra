@@ -2,3 +2,4 @@ pass.md
 mongo.md
 node_modules
 prettierrc
+dist/
